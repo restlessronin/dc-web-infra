@@ -1,0 +1,13 @@
+services:
+  certbot:
+    build: .
+    volumes:
+      - ./conf:/etc/letsencrypt
+      - ./www:/var/www/certbot
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - infra_network
+
+networks:
+  infra_network:
+    external: true

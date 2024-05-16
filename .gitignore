@@ -1,0 +1,6 @@
+/postgres_data/
+/certbot/conf/
+/certbot/www/
+.env
+
+.llm-context/

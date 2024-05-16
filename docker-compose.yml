@@ -1,0 +1,29 @@
+services:
+  nginx:
+    image: nginx:1.26.0-bookworm
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/nginx/ssl
+      - ./certbot/www:/var/www/certbot
+    networks:
+      - infra_network
+  
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - infra_network
+
+volumes:
+  postgres_data:
+
+networks:
+  infra_network:
