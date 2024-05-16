@@ -27,7 +27,7 @@ Manages Docker Compose-based infrastructure for web applications, including conf
 3. **Run the initialization script to create necessary directories**:
 
    ```sh
-   ./init-dirs.sh
+   ./initialize-directories.sh
    ```
 
 4. **Make the renewal and reload script executable**:
@@ -57,6 +57,45 @@ Manages Docker Compose-based infrastructure for web applications, including conf
    ```sh
    docker-compose -f docker-compose.yml -f app1.docker-compose.yml --env-file .env --env-file app1.env up -d
    docker-compose -f docker-compose.yml -f app2.docker-compose.yml --env-file .env --env-file app2.env up -d
+   ```
+
+## Customizing Nginx Configuration
+
+1. **Add your domain configuration**:
+
+   - Edit or add configuration files in the `nginx/conf.d/` directory. You can use `example.org.conf` as a template.
+
+2. **Example `example.org.conf` file**:
+
+   ```nginx
+   server {
+       listen 80;
+       listen [::]:80;
+
+       server_name example.org www.example.org;
+       server_tokens off;
+
+       location /.well-known/acme-challenge/ {
+           root /var/www/certbot;
+       }
+
+       location / {
+           return 301 https://example.org$request_uri;
+       }
+   }
+   ```
+
+3. **Customize the server_name and other settings**:
+
+   - Replace `example.org` and `www.example.org` with your actual domain names.
+   - Adjust other settings as needed for your specific requirements.
+
+4. **Reload Nginx to apply the changes**:
+
+   - After making changes to the Nginx configuration, ensure to reload Nginx to apply the new settings.
+
+   ```sh
+   docker exec nginx nginx -s reload
    ```
 
 ## Renewing SSL Certificates
