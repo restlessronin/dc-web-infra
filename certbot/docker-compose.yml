@@ -2,9 +2,8 @@ services:
   certbot:
     build: .
     volumes:
-      - ./conf:/etc/letsencrypt
-      - ./www:/var/www/certbot
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ./conf:/etc/letsencrypt:rw
+      - ./www:/var/www/certbot:rw
     networks:
       - infra_network
 
