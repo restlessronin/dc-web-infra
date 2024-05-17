@@ -27,13 +27,12 @@ Docker compose based infrastructure for web applications, including common servi
 3. **Run the initialization script to create necessary directories**:
 
    ```sh
-   ./initialize-directories.sh
+   ./init-dirs.sh
    ```
 
-4. **Make the renewal and reload script executable**:
-
+4. **Set the compose project name**
    ```sh
-   chmod +x renew-reload.sh
+   export COMPOSE_PROJECT_NAME=webinfra
    ```
 
 ## Running the Services
