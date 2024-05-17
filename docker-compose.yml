@@ -34,3 +34,5 @@ volumes:
 
 networks:
   infra_network:
+    driver: bridge
+    attachable: true
