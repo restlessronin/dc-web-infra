@@ -1,6 +1,6 @@
-# webapp-infra-dc
+# dc-web-infra
 
-Manages Docker Compose-based infrastructure for web applications, including configurations for common services like Nginx, PostgreSQL, and Certbot, along with app-specific Docker Compose files and environment settings.
+Docker compose based infrastructure for web applications, including common services like nginx, postgres, and certbot. A blueprint for per-app compose files and environment settings can be used to add additional apps.
 
 ## Prerequisites
 
