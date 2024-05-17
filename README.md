@@ -81,7 +81,7 @@ This project was created in collaboration with GPT-4o
        }
 
        location / {
-           return 301 https://example.org$request_uri;
+           return 301 https://$host$request_uri;
        }
    }
    ```
