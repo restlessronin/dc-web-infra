@@ -2,6 +2,8 @@
 
 Docker compose based infrastructure for web applications, including common services like nginx, postgres, and certbot. A blueprint for per-app compose files and environment settings can be used to add additional apps.
 
+This project was created in collaboration with GPT-4o
+
 ## Prerequisites
 
 - Docker
@@ -96,6 +98,8 @@ Docker compose based infrastructure for web applications, including common servi
    ```sh
    docker exec nginx nginx -s reload
    ```
+
+## Let's Encrypt SSL Certificates
 
 ## Renewing SSL Certificates
 
