@@ -1,5 +1,4 @@
 #!/bin/sh
 
-cd /srv/docker/certbot && \
-    docker-compose -p webinfra -f docker-compose.yml run --rm certbot
-docker exec nginx nginx -s reload
+docker-compose run --rm certbot renew
+docker-compose exec nginx nginx -s reload

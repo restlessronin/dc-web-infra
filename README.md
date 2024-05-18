@@ -42,22 +42,18 @@ This project was created in collaboration with GPT-4o
 1. **Start common services (Nginx and PostgreSQL)**:
 
    ```sh
-   docker-compose up -d
+   docker-compose up -d nginx postgres
    ```
 
-2. **Start Certbot service for SSL certificates**:
+2. Get Let's Encrypt SSL Certificate
 
    ```sh
-   cd certbot
-   docker-compose up -d
-   cd ..
+   docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d example.org
    ```
 
 3. **Start app-specific services** (example for app1 and app2):
 
    ```sh
-   docker-compose -f docker-compose.yml -f app1.docker-compose.yml --env-file .env --env-file app1.env up -d
-   docker-compose -f docker-compose.yml -f app2.docker-compose.yml --env-file .env --env-file app2.env up -d
    ```
 
 ## Customizing Nginx Configuration
@@ -96,10 +92,8 @@ This project was created in collaboration with GPT-4o
    - After making changes to the Nginx configuration, ensure to reload Nginx to apply the new settings.
 
    ```sh
-   docker exec nginx nginx -s reload
+   docker compose exec nginx nginx -s reload
    ```
-
-## Let's Encrypt SSL Certificates
 
 ## Renewing SSL Certificates
 
