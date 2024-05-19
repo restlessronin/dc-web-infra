@@ -31,7 +31,7 @@ services:
 
   mai-web:
     env_file: mai.env
-    image: mai-web
+    image: mai
     networks:
       - infra_network
     depends_on:
