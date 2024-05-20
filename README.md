@@ -22,6 +22,7 @@ This project was created in collaboration with GPT-4o
 
    ```sh
    cp .env.template .env
+   cp postgres.env.template postgres.env
    ```
 
    Edit `postgres.env` to set your superuser database user, password, and other configuration.
