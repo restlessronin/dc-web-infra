@@ -42,7 +42,7 @@ The root of the dc-web-infra repo on the host is '/srv/sc-web-infra'
 ## Initialize Database
 
 ```sh
-docker cp /srv/dc-web-infra/setup_db_and_roles.sh <postgres_container_name>:/tmp/setup_db_and_roles.sh
+docker cp /srv/dc-web-infra/setup_db_and_roles.sh webinfra-postgres-1:/tmp/setup_db_and_roles.sh
 docker compose exec postgres bash -c "/tmp/setup_db_and_roles.sh mai chat 'rw-pwd' 'ro-pwd'"
 ```
 
@@ -107,8 +107,7 @@ server {
 ## Run migrations
 
 ```sh
-# user & password values must be the same as in postgres.env
-docker compose exec -e "POSTGRES_USER=postgres" -e "POSTGRES_PASSWORD=foo" mai-web sh -c "`cat /srv/dc-web-infra/mai/run_migrations.sh`"
+docker compose exec --env-file postgres.env mai-web sh -c "/app/run_migrations.sh"
 ```
 
 ## Start web service
