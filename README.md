@@ -38,7 +38,7 @@ This project was created in collaboration with GPT-4o
 1. Start common services (Nginx and probably PostgreSQL):
 
    ```sh
-   docker-compose up -d nginx postgres
+   docker compose up -d nginx postgres
    ```
 
 ## Renewing Lets Encrypt SSL Certificates with certbot
