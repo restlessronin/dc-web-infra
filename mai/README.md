@@ -42,7 +42,15 @@ The root of the dc-web-infra repo on the host is '/srv/sc-web-infra'
 ## Initialize Database
 
 ```sh
-docker compose exec postgres sh -c "`cat /srv/dc-web-infra/setup_db_and_roles.sh` mai db_name web_rw_passwd web_ro_passwd"
+docker cp /srv/dc-web-infra/setup_db_and_roles.sh <postgres_container_name>:/tmp/setup_db_and_roles.sh
+docker compose exec postgres bash -c "/tmp/setup_db_and_roles.sh mai chat 'rw-pwd' 'ro-pwd'"
+```
+
+## Copy db name and password to .env file (use .env.template as a template)
+
+```env
+POSTGRES_PASSWORD=rw-pwd
+POSTGRES_DB=mai_chat
 ```
 
 ## Docker Image
@@ -51,11 +59,11 @@ docker compose exec postgres sh -c "`cat /srv/dc-web-infra/setup_db_and_roles.sh
 
 ```sh
 # clone repo
-git clone --depth 1 https://github.com/cyberchitta/mai.git /srv/sc-web-infra/mai/repo
+git clone --depth 1 https://github.com/cyberchitta/M.ai.git /srv/dc-web-infra/mai/repo
 
 # build docker image
-cd /sr/sc-web-infra/mai/repo
-docker build -t mai -f ./sc-web-infra/Dockerfile .
+cd /srv/dc-web-infra/mai/repo
+docker build -t mai -f ./dc-web-infra/Dockerfile .
 cd ..
 
 # delete repo
