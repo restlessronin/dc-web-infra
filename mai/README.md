@@ -42,7 +42,7 @@ The root of the dc-web-infra repo on the host is '/srv/sc-web-infra'
 ## Initialize Database
 
 ```sh
-docker-compose exec postgres sh -c "`cat /srv/dc-web-infra/setup_db_and_roles.sh` arg1 arg2"
+docker compose exec postgres sh -c "`cat /srv/dc-web-infra/setup_db_and_roles.sh` mai db_name web_rw_passwd web_ro_passwd"
 ```
 
 ## Docker Image
