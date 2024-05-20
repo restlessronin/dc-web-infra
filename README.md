@@ -14,8 +14,8 @@ This project was created in collaboration with GPT-4o
 1. Clone the repository:
 
    ```sh
-   git clone --depth 1 <your-remote-repository-url> /srv/docker
-   cd /srv/docker
+   git clone --depth 1 <your-remote-repository-url> /srv/dc-web-infra
+   cd /srv/dc-web-infra
    ```
 
 2. Copy the sample environment files and configure:
@@ -53,7 +53,7 @@ SSL certificates are renewed automatically via a cron job. To set up the cron jo
 2. Add a cron job to run the renewal and reload script twice a day:
 
    ```cron
-   0 0,12 * * * /srv/docker/renew-reload.sh
+   0 0,12 * * * /srv/dc-web-infra/renew-reload.sh
    ```
 
 This cron job will:
