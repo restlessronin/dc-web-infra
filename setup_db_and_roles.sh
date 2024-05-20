@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Check if the correct number of arguments is provided
-if [ "$#" -ne 6 ]; then
-    echo "Usage: $0 <superuser> <superuser_password> <app_prefix> <database> <webapp_user_password> <webapp_readonly_password>"
+if [ "$#" -ne 4 ]; then
+    echo "Usage: $0 <app_prefix> <database> <webapp_user_password> <webapp_readonly_password>"
     exit 1
 fi
 
 # Assign arguments to variables
-SUPERUSER=$1
-SUPERUSER_PASSWORD=$2
+SUPERUSER=${POSTGRES_USER}
+SUPERUSER_PASSWORD=${POSTGRES_PASSWORD}
 APP_PREFIX=$3
 DATABASE=$4
 WEBAPP_USER_PASSWORD=$5

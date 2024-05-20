@@ -12,6 +12,7 @@ services:
       - infra_network
 
   postgres:
+    env_file: postgres.env
     image: postgres:15-alpine
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -30,7 +31,7 @@ services:
       - infra_network
 
   mai-web:
-    env_file: mai.env
+    env_file: mai/.env
     image: mai
     networks:
       - infra_network
