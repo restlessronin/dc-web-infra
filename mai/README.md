@@ -107,7 +107,7 @@ server {
 ## Run migrations
 
 ```sh
-docker compose exec --env-file postgres.env mai-web sh -c "/app/run_migrations.sh"
+docker run --env-file postgres.env --rm --name mai-web mai bash -c "/app/run_migrations.sh"
 ```
 
 ## Start web service
