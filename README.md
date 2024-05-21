@@ -14,7 +14,7 @@ This project was created in collaboration with GPT-4o
 1. Clone the repository:
 
    ```sh
-   git clone --depth 1 <your-remote-repository-url> /srv/dc-web-infra
+   git clone --depth 1 https://github.com/restlessronin/dc-web-infra /srv/dc-web-infra
    cd /srv/dc-web-infra
    ```
 
