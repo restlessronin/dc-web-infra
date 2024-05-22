@@ -9,7 +9,7 @@ This project was created in collaboration with GPT-4o
 - Docker
 - Docker Compose
 
-## Setup
+## First Time Setup
 
 1. Clone the repository:
 
