@@ -7,7 +7,7 @@ The root of the dc-web-infra repo on the host is '/srv/sc-web-infra'
 
 1. Add your domain configuration:
 
-   - Edit or add configuration files in the `nginx/conf.d/` directory. You can use `cyberchitta.cc.conf` as a template.
+   - Edit or add configuration files in the `nginx/conf.d/` directory.
 
 2. Contents of `cyberchitta.cc.conf` file:
 

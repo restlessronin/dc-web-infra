@@ -1,6 +1,7 @@
 /postgres_data/
 /certbot/conf/
 /certbot/www/
+/nginx/conf.d/
 .env
 postgres.env
 
