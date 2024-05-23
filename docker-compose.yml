@@ -9,7 +9,7 @@ services:
       - ./certbot/conf:/etc/nginx/ssl:ro
       - ./certbot/www:/var/www/certbot:ro
     networks:
-      - infra_network
+      - dc_net
 
   postgres:
     env_file: postgres.env
@@ -19,7 +19,7 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
     networks:
-      - infra_network
+      - dc_net
 
   certbot:
     image: certbot/certbot:v2.10.0
@@ -27,13 +27,13 @@ services:
       - ./certbot/conf:/etc/letsencrypt:rw
       - ./certbot/www:/var/www/certbot:rw
     networks:
-      - infra_network
+      - dc_net
 
   mai-web:
     env_file: mai/.env
     image: mai
     networks:
-      - infra_network
+      - dc_net
     depends_on:
       - postgres
 
@@ -41,6 +41,6 @@ volumes:
   postgres_data:
 
 networks:
-  infra_network:
+  dc_net:
     driver: bridge
     attachable: true
