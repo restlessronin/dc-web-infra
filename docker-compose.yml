@@ -29,9 +29,9 @@ services:
     networks:
       - dc_net
 
-  mai-web:
-    env_file: mai/.env
-    image: mai
+  llm-chat-web:
+    env_file: llm_chat/.env
+    image: llm-chat
     networks:
       - dc_net
     depends_on:
